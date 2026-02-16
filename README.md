@@ -4,6 +4,7 @@
 ## Project info
 
 **URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+<!-- Vercel Trigger: Deployment after public repo change -->
 
 ## How can I edit this code?
 
