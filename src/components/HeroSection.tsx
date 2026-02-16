@@ -55,7 +55,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-20 pb-12 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-dental-gradient-hero" />
 
