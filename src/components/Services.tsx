@@ -99,8 +99,7 @@ const Services = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.2,
+        duration: 0.4,
       },
     },
   };

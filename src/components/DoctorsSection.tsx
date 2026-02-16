@@ -78,7 +78,7 @@ const DoctorsSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        duration: 0.4,
       },
     },
   };

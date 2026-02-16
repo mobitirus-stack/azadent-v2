@@ -27,31 +27,28 @@ import { HelmetProvider } from "react-helmet-async";
 
 const queryClient = new QueryClient();
 
-// Animated Routes wrapper
 const AnimatedRoutes = () => {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Index />} />
-        <Route path="/paslaugos/:serviceId" element={<ServiceDetail />} />
-        <Route path="/galerija" element={<GalleryPage />} />
-        <Route path="/duk" element={<FAQPage />} />
-        <Route path="/svetaines-informacija" element={<WebsiteInfo />} />
-        {/* Blog Routes */}
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/kasdienine-prieziura" element={<Article1 />} />
-        <Route path="/blog/dantu-implantai" element={<Article2 />} />
-        <Route path="/blog/burnos-higiena" element={<Article3 />} />
-        {/* Admin Routes */}
-        <Route path="/admin" element={<Login />} />
-        <Route path="/admin/dashboard" element={<Dashboard />} />
-        <Route path="/admin/setup" element={<SetupPage />} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </AnimatePresence>
+    <Routes location={location} key={location.pathname}>
+      <Route path="/" element={<Index />} />
+      <Route path="/paslaugos/:serviceId" element={<ServiceDetail />} />
+      <Route path="/galerija" element={<GalleryPage />} />
+      <Route path="/duk" element={<FAQPage />} />
+      <Route path="/svetaines-informacija" element={<WebsiteInfo />} />
+      {/* Blog Routes */}
+      <Route path="/blog" element={<BlogPage />} />
+      <Route path="/blog/kasdienine-prieziura" element={<Article1 />} />
+      <Route path="/blog/dantu-implantai" element={<Article2 />} />
+      <Route path="/blog/burnos-higiena" element={<Article3 />} />
+      {/* Admin Routes */}
+      <Route path="/admin" element={<Login />} />
+      <Route path="/admin/dashboard" element={<Dashboard />} />
+      <Route path="/admin/setup" element={<SetupPage />} />
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 
