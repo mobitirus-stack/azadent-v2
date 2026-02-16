@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const PageScroll = () => {
     const { pathname, hash } = useLocation();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         // If there is a hash, scroll to the element
         if (hash) {
             setTimeout(() => {
@@ -14,9 +14,8 @@ const PageScroll = () => {
                 }
             }, 100);
         } else {
-            // Otherwise scroll to top on route change
-            // Using 'auto' instead of 'instant' for better compatibility
-            window.scrollTo({ top: 0, behavior: "auto" });
+            // Force scroll to top instantly on route change
+            window.scrollTo(0, 0);
         }
     }, [pathname, hash]);
 

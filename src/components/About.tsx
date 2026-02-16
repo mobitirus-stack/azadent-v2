@@ -62,7 +62,7 @@ const About = () => {
   ];
 
   const trustBadges = [
-    { icon: Zap, text: "Greitas aptarnavimas" },
+    { icon: BadgeCheck, text: "Greitas aptarnavimas" },
     { icon: BadgeCheck, text: "Kokybė" },
     { icon: BadgeCheck, text: "Profesionalumas" },
   ];
