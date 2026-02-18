@@ -21,7 +21,7 @@ import PageScroll from "./components/PageScroll";
 
 import Login from "./pages/admin/Login";
 import Dashboard from "./pages/admin/Dashboard";
-import SetupPage from "./pages/admin/SetupPage";
+
 
 import { HelmetProvider } from "react-helmet-async";
 
@@ -45,7 +45,7 @@ const AnimatedRoutes = () => {
       {/* Admin Routes */}
       <Route path="/admin" element={<Login />} />
       <Route path="/admin/dashboard" element={<Dashboard />} />
-      <Route path="/admin/setup" element={<SetupPage />} />
+
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
