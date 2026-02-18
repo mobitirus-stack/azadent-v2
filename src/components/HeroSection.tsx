@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Calendar, Phone, MapPin, Clock, Star, Shield, Award, Sparkles, Edit } from "lucide-react";
 import heroImage from "@/assets/hero-collage.jpg";
-import { useContent } from "@/hooks/useContent";
+import { usePublicContent } from "@/hooks/useLocalContent";
 import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
   const navigate = useNavigate();
   // CMS Integration
-  const { data: content, loading, isEditable } = useContent("home.hero", {
+  const { data: content } = usePublicContent("admin.hero", {
     title: "Mes padėsime Jums šypsotis",
     subtitle: "AZADENT – atidumas ir profesionalumas.",
     rating: "5.0",
@@ -59,16 +59,7 @@ const HeroSection = () => {
       {/* Background */}
       <div className="absolute inset-0 bg-dental-gradient-hero" />
 
-      {/* Edit Button for Admin */}
-      {isEditable && (
-        <button
-          onClick={() => navigate("/admin/dashboard")}
-          className="absolute top-24 left-4 z-50 bg-primary text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
-          title="Redaguoti turinį"
-        >
-          <Edit className="w-5 h-5" />
-        </button>
-      )}
+
 
       {/* Clean background without animations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { usePublicContent } from "@/hooks/useLocalContent";
 
 interface PriceItem {
     name: string;
@@ -12,67 +13,56 @@ interface PriceCategory {
     items: PriceItem[];
 }
 
+const defaultPricing: PriceCategory[] = [
+    { title: "Konsultacija", items: [{ name: "Konsultacija", price: "15–25 €" }] },
+    { title: "Dantų plombavimas", items: [{ name: "Dantų plombavimas", price: "60–100 €" }] },
+    { title: "Estetinis plombavimas", items: [{ name: "Estetinis plombavimas (1 danties)", price: "170–250 €" }] },
+    {
+        title: "Vaikų odontologija",
+        items: [
+            { name: "Pieninių dantų plombavimas", price: "25–50 €" },
+            { name: "Pieninių dantų gydymas (pulpos amputacija)", price: "20–40 €" },
+            { name: "Pieninio danties rovimas", price: "20–40 €" },
+            { name: "Silantai (vieno danties padengimas)", price: "15 €" },
+        ],
+    },
+    {
+        title: "Endodontija (dantų šaknų kanalų gydymas)",
+        items: [
+            { name: "Kanalo platinimas–formavimas", price: "50–70 €" },
+            { name: "Kanalo plombavimas", price: "50–70 €" },
+            { name: "Vaistų pakeitimas", price: "20–30 €" },
+            { name: "Pirmoji pagalba (skaudant)", price: "50 €" },
+        ],
+    },
+    { title: "Danties rovimas", items: [{ name: "Danties rovimas", price: "40–80 €" }] },
+    {
+        title: "Dantų balinimas",
+        items: [
+            { name: "Vieno žandikaulio kapa", price: "70 €" },
+            { name: "Balinimo medžiaga (1 švirkštas)", price: "30 €" },
+        ],
+    },
+    {
+        title: "Profesionali higiena ir priežiūra",
+        items: [
+            { name: "Burnos ertmės higiena", price: "70–75 €" },
+            { name: "Estetiškai plombuotų dantų poliravimas", price: "20–50 €" },
+            { name: "Bruksizmo kapa", price: "120 €" },
+        ],
+    },
+    {
+        title: "Kitos paslaugos",
+        items: [
+            { name: "Dentalinė rentgeno nuotrauka", price: "10 €" },
+            { name: "Panoraminė rentgeno nuotrauka", price: "25 €" },
+        ],
+    },
+];
+
 const Pricing = () => {
     const [openCategory, setOpenCategory] = useState<number | null>(0);
-
-    const categories: PriceCategory[] = [
-        {
-            title: "Konsultacija",
-            items: [{ name: "Konsultacija", price: "15–25 €" }],
-        },
-        {
-            title: "Dantų plombavimas",
-            items: [{ name: "Dantų plombavimas", price: "60–100 €" }],
-        },
-        {
-            title: "Estetinis plombavimas",
-            items: [{ name: "Estetinis plombavimas (1 danties)", price: "170–250 €" }],
-        },
-        {
-            title: "Vaikų odontologija",
-            items: [
-                { name: "Pieninių dantų plombavimas", price: "25–50 €" },
-                { name: "Pieninių dantų gydymas (pulpos amputacija)", price: "20–40 €" },
-                { name: "Pieninio danties rovimas", price: "20–40 €" },
-                { name: "Silantai (vieno danties padengimas)", price: "15 €" },
-            ],
-        },
-        {
-            title: "Endodontija (dantų šaknų kanalų gydymas)",
-            items: [
-                { name: "Kanalo platinimas–formavimas", price: "50–70 €" },
-                { name: "Kanalo plombavimas", price: "50–70 €" },
-                { name: "Vaistų pakeitimas", price: "20–30 €" },
-                { name: "Pirmoji pagalba (skaudant)", price: "50 €" },
-            ],
-        },
-        {
-            title: "Danties rovimas",
-            items: [{ name: "Danties rovimas", price: "40–80 €" }],
-        },
-        {
-            title: "Dantų balinimas",
-            items: [
-                { name: "Vieno žandikaulio kapa", price: "70 €" },
-                { name: "Balinimo medžiaga (1 švirkštas)", price: "30 €" },
-            ],
-        },
-        {
-            title: "Profesionali higiena ir priežiūra",
-            items: [
-                { name: "Burnos ertmės higiena", price: "70–75 €" },
-                { name: "Estetiškai plombuotų dantų poliravimas", price: "20–50 €" },
-                { name: "Bruksizmo kapa", price: "120 €" },
-            ],
-        },
-        {
-            title: "Kitos paslaugos",
-            items: [
-                { name: "Dentalinė rentgeno nuotrauka", price: "10 €" },
-                { name: "Panoraminė rentgeno nuotrauka", price: "25 €" },
-            ],
-        },
-    ];
+    const { data: categories } = usePublicContent<PriceCategory[]>('admin.pricing', defaultPricing);
 
     const containerVariants = {
         hidden: { opacity: 0 },

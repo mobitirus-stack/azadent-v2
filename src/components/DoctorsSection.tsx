@@ -15,7 +15,7 @@ interface Doctor {
   image: string;
 }
 
-import { useContent } from "@/hooks/useContent";
+import { usePublicContent } from "@/hooks/useLocalContent";
 
 // ... imports
 
@@ -45,7 +45,7 @@ const DoctorsSection = () => {
      CMS DATA INTEGRATION:
      We use the 'home.doctors' slug. The CMS should save this as a direct Array of Doctor objects.
   */
-  const { data: doctorsList } = useContent<Doctor[]>('home.doctors', defaultDoctors);
+  const { data: doctorsList } = usePublicContent<Doctor[]>('admin.doctors', defaultDoctors);
 
   // MERGE LOGIC: Use local image if CMS image is missing
   const doctors = (Array.isArray(doctorsList) ? doctorsList : defaultDoctors).map(doctor => {

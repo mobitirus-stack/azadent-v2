@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn, Grid3X3 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { usePublicContent } from "@/hooks/useLocalContent";
 
 // Import service images for gallery
 import toothFillingImg from "@/assets/services/tooth-filling.jpg";
@@ -31,28 +32,32 @@ const pageVariants = {
     exit: { opacity: 0, transition: { duration: 0.3 } },
 };
 
+const localImages: GalleryImage[] = [
+    { src: toothFillingImg, alt: "Dantų plombavimas", category: "results" },
+    { src: aestheticFillingImg, alt: "Estetinis plombavimas", category: "results" },
+    { src: oralHygieneImg, alt: "Burnos higiena", category: "results" },
+    { src: rootCanalImg, alt: "Šaknų kanalų gydymas", category: "results" },
+    { src: toothExtractionImg, alt: "Dantų šalinimas", category: "results" },
+    { src: dentalImplantsImg, alt: "Dantų implantacija", category: "results" },
+    { src: teethWhiteningImg, alt: "Dantų balinimas", category: "results" },
+    { src: klinika1Img, alt: "Klinika", category: "clinic" },
+    { src: klinika2Img, alt: "Klinika", category: "clinic" },
+    { src: rezultataiEstetinisImg, alt: "Estetinio plombavimo rezultatai", category: "results" },
+    { src: rentgenasImg, alt: "Rentgeno nuotrauka", category: "clinic" },
+];
+
 const GalleryPage = () => {
     const [selectedImage, setSelectedImage] = useState<number | null>(null);
     const [activeCategory, setActiveCategory] = useState("all");
+
+    // Merge local images with admin-added images from localStorage
+    const { data: adminImages } = usePublicContent<GalleryImage[]>('admin.gallery', []);
+    const images = useMemo(() => [...localImages, ...adminImages], [adminImages]);
 
     const categories = [
         { id: "all", name: "Visos" },
         { id: "results", name: "Rezultatai" },
         { id: "clinic", name: "Klinika" },
-    ];
-
-    const images: GalleryImage[] = [
-        { src: toothFillingImg, alt: "Dantų plombavimas", category: "results" },
-        { src: aestheticFillingImg, alt: "Estetinis plombavimas", category: "results" },
-        { src: oralHygieneImg, alt: "Burnos higiena", category: "results" },
-        { src: rootCanalImg, alt: "Šaknų kanalų gydymas", category: "results" },
-        { src: toothExtractionImg, alt: "Dantų šalinimas", category: "results" },
-        { src: dentalImplantsImg, alt: "Dantų implantacija", category: "results" },
-        { src: teethWhiteningImg, alt: "Dantų balinimas", category: "results" },
-        { src: klinika1Img, alt: "Klinika", category: "clinic" },
-        { src: klinika2Img, alt: "Klinika", category: "clinic" },
-        { src: rezultataiEstetinisImg, alt: "Estetinio plombavimo rezultatai", category: "results" },
-        { src: rentgenasImg, alt: "Rentgeno nuotrauka", category: "clinic" },
     ];
 
     const filteredImages = activeCategory === "all"

@@ -20,7 +20,7 @@ interface Service {
   slug: string;
 }
 
-import { useContent } from "@/hooks/useContent";
+import { usePublicContent } from "@/hooks/useLocalContent";
 
 // ... imports
 
@@ -81,7 +81,7 @@ const Services = () => {
      We use the 'home.services' slug. The CMS should save this as a direct Array of Service objects.
      If CMS data is missing, we fall back to 'defaultServices'.
   */
-  const { data: servicesList } = useContent<Service[]>('home.services', defaultServices);
+  const { data: servicesList } = usePublicContent<Service[]>('admin.services', defaultServices);
 
   // MERGE LOGIC: If CMS data lacks image, use the local default image
   // Note: 'servicesList' is now the array itself, not { list: ... }
