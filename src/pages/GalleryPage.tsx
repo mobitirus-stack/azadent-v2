@@ -51,8 +51,13 @@ const GalleryPage = () => {
     const [activeCategory, setActiveCategory] = useState("all");
 
     // Merge local images with admin-added images from localStorage
+    // Filter out hidden local images
     const { data: adminImages } = usePublicContent<GalleryImage[]>('admin.gallery', []);
-    const images = useMemo(() => [...localImages, ...adminImages], [adminImages]);
+    const { data: hiddenAlts } = usePublicContent<string[]>('admin.gallery.hidden', []);
+    const images = useMemo(
+        () => [...localImages.filter(img => !hiddenAlts.includes(img.alt)), ...adminImages],
+        [adminImages, hiddenAlts]
+    );
 
     const categories = [
         { id: "all", name: "Visos" },
