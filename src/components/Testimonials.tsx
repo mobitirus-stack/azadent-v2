@@ -9,39 +9,39 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: "Aistė M.",
+      name: "Monika V.",
       rating: 5,
-      text: "Puikus aptarnavimas ir profesionalūs gydytojai. Labai rekomenduoju! Jaučiausi labai patogiai ir saugiai per visą vizitą.",
-      service: "Dantų balinimas",
-      date: "2024 m. sausis",
-    },
-    {
-      name: "Tomas K.",
-      rating: 5,
-      text: "Geriausias odontologijos kabinetas, kuriame esu buvęs. Moderni įranga ir malonus personalas. Gydytojas Ernestas tikras profesionalas!",
-      service: "Dantų implantacija",
-      date: "2024 m. vasaris",
-    },
-    {
-      name: "Laura S.",
-      rating: 5,
-      text: "Ačiū už nuostabų rezultatą! Mano šypsena niekada neatrodė geriau. Rekomenduoju visiems, kas ieško kokybiškų paslaugų.",
-      service: "Estetinis plombavimas",
-      date: "2024 m. kovas",
+      text: "Labai maloni ir profesionali specialistė. Supažindino su dantų valymo procedūra, atkreipė dėmesį į problemines vietas. Likau labai patenkinta, rekomenduoju.",
+      service: "Burnos higiena",
+      date: "2026-01-31",
     },
     {
       name: "Justas R.",
       rating: 5,
-      text: "Profesionalus ir skausmingas gydymas. Po ilgų metų baimės pagaliau radau odontologiją, kur jaučiuosi ramiai.",
+      text: "Puikus gydytojas, kuris itin švelniai ir kruopščiai dirba. Paslaugų kainos taip pat prieinamos.",
       service: "Šaknų kanalų gydymas",
-      date: "2024 m. balandis",
+      date: "2025-12-08",
     },
     {
-      name: "Monika V.",
+      name: "Laura S.",
       rating: 5,
-      text: "Nuostabus personalas ir švarios patalpos. Gydytoja Giedrė labai švelni ir atidi. Mano vaikai nebijo eiti pas odontologą!",
+      text: "Dėkoju už profesionalią procedūrą. Viskas buvo atlikta neskausmingai, o patarimai, kaip taisyklingai prižiūrėti dantis, buvo aiškūs ir naudingi.",
+      service: "Dantų implantacija",
+      date: "2025-07-29",
+    },
+    {
+      name: "Aistė M.",
+      rating: 5,
+      text: "Nuostabi gydytoja, gavau ne tik nuostabiai atlikta burnos higieną, bet ir puikią pamoką, kai reikia tinkamai valytis dantis. Rekomenduoju!!!",
       service: "Burnos higiena",
-      date: "2024 m. gegužė",
+      date: "2025-09-02",
+    },
+    {
+      name: "Tomas K.",
+      rating: 5,
+      text: "Labai greitai ir neskausmingai ištraukė man protinį dantį. Gydytojas buvo labai draugiškas ir profesionalus. Esu labai patenkinta rezultatu ir rekomenduoju šią kliniką bei gydytoją!",
+      service: "Danties rovimas",
+      date: "2025-05-31",
     },
   ];
 

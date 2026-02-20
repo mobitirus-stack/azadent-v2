@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
-import { useState } from "react";
 import { usePublicContent } from "@/hooks/useLocalContent";
 
 interface PriceItem {
@@ -61,7 +59,6 @@ const defaultPricing: PriceCategory[] = [
 ];
 
 const Pricing = () => {
-    const [openCategory, setOpenCategory] = useState<number | null>(0);
     const { data: categories } = usePublicContent<PriceCategory[]>('admin.pricing', defaultPricing);
 
     const containerVariants = {
@@ -127,33 +124,14 @@ const Pricing = () => {
                             className="card-premium rounded-2xl overflow-hidden"
                         >
                             {/* Category Header */}
-                            <motion.button
-                                whileHover={{ scale: 1.005 }}
-                                whileTap={{ scale: 0.995 }}
-                                onClick={() => setOpenCategory(openCategory === catIndex ? null : catIndex)}
-                                className="w-full flex items-center justify-between p-5 md:p-6 text-left group"
-                            >
-                                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors text-base md:text-lg">
+                            <div className="w-full flex items-center justify-between p-5 md:p-6 text-left border-b border-border/30">
+                                <h3 className="font-semibold text-foreground text-base md:text-lg">
                                     {category.title}
                                 </h3>
-                                <motion.div
-                                    animate={{ rotate: openCategory === catIndex ? 180 : 0 }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <ChevronDown className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                                </motion.div>
-                            </motion.button>
+                            </div>
 
                             {/* Category Items */}
-                            <motion.div
-                                initial={false}
-                                animate={{
-                                    height: openCategory === catIndex ? "auto" : 0,
-                                    opacity: openCategory === catIndex ? 1 : 0,
-                                }}
-                                transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                                className="overflow-hidden"
-                            >
+                            <div className="overflow-hidden">
                                 <div className="px-5 md:px-6 pb-5 md:pb-6 space-y-3">
                                     {category.items.map((item, itemIndex) => (
                                         <motion.div
@@ -170,7 +148,7 @@ const Pricing = () => {
                                         </motion.div>
                                     ))}
                                 </div>
-                            </motion.div>
+                            </div>
                         </motion.div>
                     ))}
                 </motion.div>

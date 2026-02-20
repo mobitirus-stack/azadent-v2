@@ -85,12 +85,16 @@ const Footer = () => {
             {/* Brand */}
             <motion.div variants={itemVariants} className="lg:col-span-1">
               <Link to="/" className="inline-block mb-6 group">
-                <motion.img
+                <motion.div
                   whileHover={{ scale: 1.05 }}
-                  src={logo}
-                  alt="Azadent odontologijos kabinetas"
-                  className="h-32 md:h-44 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-                />
+                  className="bg-white/95 p-4 rounded-3xl"
+                >
+                  <img
+                    src={logo}
+                    alt="Azadent odontologijos kabinetas"
+                    className="h-24 md:h-32 lg:h-40 w-auto object-contain transition-opacity"
+                  />
+                </motion.div>
               </Link>
               <p className="text-white/70 text-sm mb-6 leading-relaxed">
                 Čia pacientai vertina kruopštumą, atidumą, profesionalumą.

@@ -99,12 +99,14 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <img
-                  src={logo}
-                  alt="Azadent odontologijos kabinetas"
-                  className={`w-auto object-contain transition-all duration-500 ${isScrolled ? "h-12 md:h-14" : "h-16 md:h-20"
-                    }`}
-                />
+                <div className="bg-white/95 p-2 rounded-2xl shadow-sm transition-all duration-500">
+                  <img
+                    src={logo}
+                    alt="Azadent odontologijos kabinetas"
+                    className={`w-auto object-contain transition-all duration-500 ${isScrolled ? "h-14 md:h-16" : "h-20 md:h-24"
+                      }`}
+                  />
+                </div>
               </motion.div>
             </Link>
 
@@ -275,11 +277,13 @@ const Header = () => {
             <div className="flex flex-col h-full">
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between p-6 border-b border-border">
-                <img
-                  src={logo}
-                  alt="Azadent"
-                  className="h-10 w-auto object-contain"
-                />
+                <div className="bg-white/95 p-1.5 rounded-xl shadow-sm">
+                  <img
+                    src={logo}
+                    alt="Azadent"
+                    className="h-10 w-auto object-contain"
+                  />
+                </div>
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
