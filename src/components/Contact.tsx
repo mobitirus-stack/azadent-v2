@@ -9,7 +9,7 @@ const Contact = () => {
       title: "Adresas",
       content: "Konstitucijos pr. 13",
       subContent: "Vilnius, 09319",
-      link: "https://www.google.com/maps/place/Azadent+odontologijos+kabinetas",
+      link: "https://www.google.com/maps/search/?api=1&query=Azadent+odontologijos+kabinetas,+Konstitucijos+pr.+13,+Vilnius",
       linkText: "Atidaryti žemėlapyje",
       color: "from-primary/20 to-primary/5",
       iconColor: "text-primary",

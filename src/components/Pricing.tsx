@@ -104,9 +104,6 @@ const Pricing = () => {
                         <span className="text-gradient">kainos</span>
                     </h2>
                     <div className="section-divider mb-6" />
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                        Transparentiškos kainos be paslėptų mokesčių. Galutinė kaina nustatoma po konsultacijos.
-                    </p>
                 </motion.div>
 
                 {/* Price Categories */}
