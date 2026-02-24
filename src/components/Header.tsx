@@ -103,7 +103,7 @@ const Header = () => {
                   <img
                     src={logo}
                     alt="Azadent odontologijos kabinetas"
-                    className={`w-auto object-contain transition-all duration-500 ${isScrolled ? "h-14 md:h-16" : "h-20 md:h-24"
+                    className={`w-auto object-contain transition-all duration-500 ${isScrolled ? "h-10 md:h-16" : "h-14 md:h-24"
                       }`}
                   />
                 </div>
