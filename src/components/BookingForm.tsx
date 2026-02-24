@@ -45,16 +45,47 @@ const BookingForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          subject: "Nauja rezervacija iš Azadent svetainės",
+          from_name: formData.name,
+          Vardas: formData.name,
+          Telefonas: formData.phone,
+          El_pastas: formData.email,
+          Paslauga: formData.service,
+          Pageidaujamas_laikas: formData.preferredTime,
+          Zinute: formData.message,
+        }),
+      });
 
-    setIsSuccess(true);
-    toast({
-      title: "Užklausa išsiųsta!",
-      description: "Susisieksime su Jumis artimiausiu metu.",
-    });
-
-    setIsSubmitting(false);
+      const result = await response.json();
+      if (result.success) {
+        setIsSuccess(true);
+        toast({
+          title: "Užklausa išsiųsta!",
+          description: "Susisieksime su Jumis artimiausiu metu.",
+        });
+        setFormData({ name: "", phone: "", email: "", service: "", preferredTime: "", message: "" });
+      } else {
+        throw new Error(result.message || "Nepavyko išsiųsti");
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Klaida",
+        description: "Nepavyko išsiųsti užklausos. Pabandykite vėliau arba paskambinkite telefonu.",
+      });
+      console.error("Formos siuntimo klaida:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
