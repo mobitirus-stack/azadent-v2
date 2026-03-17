@@ -191,6 +191,40 @@ const servicesData: Record<string, {
       "Saugi procedūra su specialisto priežiūra",
       "Ilgai išliekantis efektas"
     ]
+  },
+  "vaiku-odontologija": {
+    image: alignersImg,
+    title: "Vaikų odontologija",
+    description: "Rūpinamės pačių mažiausių pacientų šypsenomis. Mūsų tikslas – užtikrinti, kad vizitas pas odontologą vaikui būtų maloni ir neskausminga patirtis, padedanti pamatus visą gyvenimą trunkančiai burnos sveikatai.",
+    details: [
+      "Pažintis su klinika ir gydytoju žaidimo forma, siekiant sukurti pasitikėjimą.",
+      "Kruopšti pieninių ir nuolatinių dantų apžiūra bei diagnostika.",
+      "Pieninių dantų gydymas ir plombavimas naudojant saugias medžiagas.",
+      "Profilaktinės procedūros: dantų padengimas silantais ir fluoro lakais."
+    ],
+    benefits: [
+      "Draugiška ir jauki aplinka vaikams",
+      "Neskausmingas ir greitas gydymas",
+      "Ankstyvoji ėduonies prevencija",
+      "Edukacija apie burnos higieną nuo mažens"
+    ]
+  },
+  "kitos-paslaugos": {
+    image: aestheticFillingImg,
+    title: "Kitos paslaugos",
+    description: "Teikiame platų papildomų odontologinių paslaugų spektrą, užtikrinantį visapusišką Jūsų burnos sveikatos priežiūrą ir tikslią diagnostiką.",
+    details: [
+      "Dentalinės ir panoraminės rentgeno nuotraukos tiksliai diagnostikai.",
+      "Išsamios specialistų konsultacijos ir gydymo plano sudarymas.",
+      "Skubioji pagalba esant aštriam dantų skausmui.",
+      "Profilaktiniai patikrinimai ir individualios rekomendacijos."
+    ],
+    benefits: [
+      "Moderni diagnostinė įranga",
+      "Visos paslaugos vienoje vietoje",
+      "Greitas reagavimas į skubius atvejus",
+      "Individualiai pritaikyti sprendimai"
+    ]
   }
 };
 

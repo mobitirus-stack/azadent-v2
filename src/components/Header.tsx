@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X, Calendar, Facebook } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logo from "@/assets/azadent-logo.png";
+import logo from "@/assets/logo-new.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -99,7 +99,7 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="bg-white/95 p-2 rounded-2xl shadow-sm transition-all duration-500">
+                <div className="bg-white p-2 rounded-2xl shadow-sm transition-all duration-500">
                   <img
                     src={logo}
                     alt="Azadent odontologijos kabinetas"

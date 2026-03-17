@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, ArrowRight, Heart } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import logo from "@/assets/azadent-logo.png";
+import logo from "@/assets/logo-new.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -87,7 +87,7 @@ const Footer = () => {
               <Link to="/" className="inline-block mb-6 group">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="bg-white/95 p-4 rounded-3xl"
+                  className="bg-white p-4 rounded-3xl"
                 >
                   <img
                     src={logo}
